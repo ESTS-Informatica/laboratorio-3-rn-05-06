@@ -8,8 +8,17 @@
 public class GroundTransportation extends Transport
 {
     private String licensePlate;
-    public GroundTransportation(){
-        super.setFees(3.0);
-        
+    private static final double GROUNDFEES = 3.0;
+    public GroundTransportation(String licensePlate){
+        super.setFees(GROUNDFEES);
+        this.licensePlate = licensePlate;
+    }
+    
+    public void setLicensePlate(String licensePlate){
+        this.licensePlate = licensePlate;
+    }
+    
+    public String getLicensePlate(){
+        return licensePlate;
     }
 }
