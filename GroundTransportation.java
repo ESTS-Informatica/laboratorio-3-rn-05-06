@@ -10,7 +10,7 @@ public class GroundTransportation extends Transport
     private String licensePlate;
     private static final double GROUNDFEES = 3.0;
     public GroundTransportation(String licensePlate){
-        super.setFees(GROUNDFEES);
+        setFees(GROUNDFEES);
         this.licensePlate = licensePlate;
     }
     
@@ -20,5 +20,24 @@ public class GroundTransportation extends Transport
     
     public String getLicensePlate(){
         return licensePlate;
+    }
+    
+    @Override
+    public double getPriceWithFees(){
+        return (100.0 + getFees())*getPrice();
+    }
+    
+    @Override
+    public String getTransportType(){
+        return "Transporte Terrestre";
+    }
+    
+    @Override
+    public String toString() {
+        String initialString = "";
+        final StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
+        sb.append(String.format("%15s: %s\n", "Matrícula", this.licensePlate));
+        return sb.toString();
     }
 }
