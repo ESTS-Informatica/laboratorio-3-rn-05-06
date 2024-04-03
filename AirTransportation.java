@@ -21,7 +21,8 @@ public class AirTransportation extends Transport
     }
     
     public void setNumberOfContainers(int numberOfContainers){
-        this.numberOfContainers = numberOfContainers;
+        if(numberOfContainers > 0)
+            this.numberOfContainers = numberOfContainers;
     }
     
     public String getName(){
@@ -33,12 +34,12 @@ public class AirTransportation extends Transport
     }
     
     public double getPriceWithFees(){
-        return (100.0 + getFees())*getPrice();
+        return (100.0 + getFees())*getPrice()/100;
     }
     
     @Override
     public String getTransportType(){
-        return "Transporte Aéreo";
+        return "Transporte Aereo";
     }
     
     @Override
@@ -46,8 +47,8 @@ public class AirTransportation extends Transport
         String initialString = "";
         final StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append(String.format("%15s: %s\n", "Matrícula", this.name));
-        sb.append(String.format("%15s: %d\n", "Quantidade de contentores", this.numberOfContainers));
+        sb.append(String.format("%15s: %s\n", "Nome", this.name));
+        sb.append(String.format("%15s: %d\n", "NºContentores", this.numberOfContainers));
         return sb.toString();
     }
 

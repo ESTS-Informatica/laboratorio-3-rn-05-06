@@ -24,7 +24,7 @@ public class GroundTransportation extends Transport
     
     @Override
     public double getPriceWithFees(){
-        return (100.0 + getFees())*getPrice();
+        return ((100.0 + getFees())*getPrice()/100);
     }
     
     @Override
@@ -37,7 +37,7 @@ public class GroundTransportation extends Transport
         String initialString = "";
         final StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append(String.format("%15s: %s\n", "Matrícula", this.licensePlate));
+        sb.append(String.format("%15s: %s\n", "Matricula", this.licensePlate));
         return sb.toString();
     }
 }
